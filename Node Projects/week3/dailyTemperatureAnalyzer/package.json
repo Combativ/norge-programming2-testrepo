@@ -12,7 +12,7 @@
   },
   "license": "ISC",
   "author": "Joran",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,5 @@
   },
   "bin": {
     "my-node-cli": "./index.js"
-  },
-  "type": "module"
+  }
 }
