@@ -21,6 +21,41 @@
 const temperatures = JSON.parse(`[${document.querySelector("#temperatures").value}]`);
 
 
+function printTemperatureAnalysis(temperatureList) {
+    let days = {
+        cold: 0,
+        mild: 0,
+        warm: 0
+    }
+
+    // counting cold/mild/warm days
+    for (let i = 0; i < temperatures.length; i++) {
+        if (temperatures[i] < 5) {
+            days.cold++;
+        } else if (temperatures[i] >= 5 && temperatures[i] <= 20) {
+            days.mild++;
+        } else {
+            days.warm++;
+        }
+    }
+
+    // differentiating singular/plural
+    for (let category in days) {
+        if (days[category] === 1) {
+            days[category] = `1  ${category} day`;
+        } else {
+            days[category] = `${days[category]} ${category} days`;
+        }
+    }
+
+
+    return `Hussa! There were ${days.cold}, ${days.mild}, and ${days.warm}.`;
+}
+
+
+console.log(printTemperatureAnalysis(temperatures));
+
+
 /*
 2. Describe a lectureroom
 
@@ -35,6 +70,49 @@ const temperatures = JSON.parse(`[${document.querySelector("#temperatures").valu
     Write a function that returns a sentence describing each lectureroom in natural language.
 */
 
+
+let lectureroom = {
+    name: "F2005",
+    students: 35,
+    hasProjector: true,
+    numberOfDoors: 3,
+};
+
+let lectureroom2 = {
+    name: "D2034",
+    students: 18,
+    hasProjector: false,
+    numberOfDoors: 2,
+};
+
+let lectureroom3 = {
+    name: "F3007",
+    students: 30,
+    hasProjector: true,
+    numberOfDoors: 2,
+};
+
+let lecturerooms = [lectureroom, lectureroom2, lectureroom3];
+
+function printLecturerooms(rooms) {
+    let result = "";
+    for (let i = 0; i < rooms.length; i++) {
+        result += `The ${i+1}. room has the name ${rooms[i].name}, it can accomodate ${rooms[i].students} students and it has ${rooms[i].numberOfDoors} doors. `;
+        
+        if (rooms[i].hasProjector) {
+            result += "It has a projector. ";
+        } else {
+            result += "It does not have a projector. ";
+        }
+        
+        result += "\n";
+    }
+
+    return result;
+}
+
+
+console.log(printLecturerooms(lecturerooms));
 
 
 
@@ -54,3 +132,44 @@ const temperatures = JSON.parse(`[${document.querySelector("#temperatures").valu
 */
 
 const surveyData = JSON.parse(document.querySelector("#surveyData").value);
+
+function printAnalysisOfSurveyData(data) {
+
+    let answers = [];
+
+    // fill array with answers
+    for (let question in surveyData) {
+        for (let answer in surveyData[question]) {
+            answers.push(surveyData[question][answer]);
+        }
+    }
+
+    // prepare analysis
+    let analysis = {
+        positive: 0,
+        neutral: 0,
+        negative: 0,
+        invalid: 0,
+    }
+
+
+    // count and categorise answers
+    for (let answer of answers) {
+        if (answer == 4 || answer == 5) {
+            analysis.positive++;
+        } else if (answer == 3) {
+            analysis.neutral++;
+        } else if (answer == 2 || answer == 1) {
+            analysis.negative++;
+        } else {
+            analysis.invalid++;
+        }
+    }
+
+    // print analysis
+    console.log(`There were ${analysis.positive} positive answers, ${analysis.neutral} neutral answers, ${analysis.negative} negative answers, as well as ${analysis.invalid} invalid answers.`);
+
+}
+
+
+printAnalysisOfSurveyData(surveyData);
