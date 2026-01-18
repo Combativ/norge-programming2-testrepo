@@ -1,30 +1,12 @@
 {
-  "name": "dailytemperatureanalyzer",
+  "name": "week3",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/Combativ/norge-programming2-testrepo#readme",
-  "bugs": {
-    "url": "https://github.com/Combativ/norge-programming2-testrepo/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Combativ/norge-programming2-testrepo.git"
-  },
   "license": "ISC",
-  "author": "Joran",
-  "type": "module",
-  "main": "index.js",
+  "author": "",
+  "type": "commonjs",
+  "main": "week3.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "chalk": "^5.6.2",
-    "commander": "^14.0.2",
-    "figlet": "^1.9.4",
-    "inquirer": "^13.2.0",
-    "ora": "^9.0.0"
-  },
-  "bin": {
-    "my-node-cli": "./index.js"
   }
 }

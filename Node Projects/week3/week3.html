@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 1.5rem;
+            max-width: 70ch;
+        }
+
+        article {
+            padding: 20px;
+            width: 210mm;
+            max-width: 210mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-position: inside;
+        }
+
+        section {
+            width: 200mm;
+            margin-top: 20px;
+        }
+
+        textarea,
+        input {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <header>
+            <p>
+                Hi,<br> the following tasks are created with an emphasis of making you use all the aspect of our basic
+                syllabus
+                (variables, conditionals, arrays, loops, functions and structures).
+                The tasks are not intended to be hard or time consuming. The intent is to give you the opportunity to
+                <strong>play🛝</strong> and
+                create <strong>beautiful solutions❤️</strong>, think hard about naming and structure, think about how
+                your code
+                communicates when run, think really
+                hard about what is actually being asked of you. Understand the task before trying to translate it to
+                code.
+            </p>
+            <p>
+                <strong>NB!</strong>
+                You can only run your code if:
+            <ul>
+                <li>You have both week3.html and week3.mjs in the same folder</li>
+                <li>You are running the html page via a web server (we use the Live server plugin for this)</li>
+            </ul>
+            <br />
+            if your address bar says something like file://.... then it is not going to work.
+            </p>
+        </header>
+
+        <section id="task1">
+            <header>
+                <h1>#1. Daily Temperature Analyzer</h1>
+            </header>
+
+            <p>
+                You are given an array of daily temperatures for one week.<br />
+                Loop through the array and count how many days were:
+            <ul>
+                <li>below 5</li>
+                <li>between 5 and 20</li>
+                <li>above 20</li>
+            </ul>
+
+            Store the counts in an object with meaningful property names.<br />
+            Write a function that returns a human-readable sentence summarizing the week (e.g. “There were 2 cold
+            days,
+            3 mild days, and 2 warm days.”).
+            </P>
+
+            <label for="temperatures">Tempratuers:</label><input type="text" id="temperatures" disabled>
+
+            <script>
+                const temps = [];
+                const DAYS_IN_WEEK = 7;
+                for (let i = 0; i < DAYS_IN_WEEK; i++) {
+                    temps.push(Math.round(Math.random() * 20));
+                }
+                document.querySelector("#temperatures").value = temps.join(",");
+            </script>
+
+
+        </section>
+
+        <section id="task2">
+            <header>
+                <h1>#2. Describe a lectureroom</h1>
+            </header>
+
+            <p>
+                Create an object that represents a lectureroom.<br />
+                The object should describe attributes like:
+            <ul>
+                <li>the room name</li>
+                <li>the number of students</li>
+                <li>whether the room has a projector</li>
+                <li>....🤷</li>
+            </ul>
+
+            Create an array containing several lectureroom objects.<br />
+            Write a function that returns a sentence describing each lectureroom in natural language.</p>
+        </section>
+
+        <section id="task3">
+            <header>
+                <h1>#3 Survey Result Interpreter</h1>
+            </header>
+
+            <p>
+                Analyze responses from a short survey.<br />
+                Store numeric survey answers (1–5) in an array.<br />
+                Loop through the answers and:
+            <ul>
+                <li>count how many are positive (4–5)</li>
+                <li>neutral (3)</li>
+                <li>negative (1–2)</li>
+            </ul>
+            <br />
+            Store the results in an object.<br />
+            Write a function that returns a short interpretation of the results in natural language.
+            </p>
+
+            <textarea id="surveyData" disabled rows="10">
+
+            </textarea>
+
+            <script>
+                const surveyResults = [];
+                const numQuestions = Math.floor(Math.random() * 5) + 3;
+                for (let i = 0; i < numQuestions; i++) {
+                    surveyResults.push((new Array(Math.floor(Math.random(5) + 5))).fill(null).map(item => {
+                        let value = Math.floor(Math.random() * 5) + 1;
+                        return (Math.random() <= 0.1) ? value * -1 : value;
+                    }));
+                }
+                document.querySelector("#surveyData").value = JSON.stringify(surveyResults, null, 2);
+            </script>
+
+        </section>
+    </article>
+
+    <script src="/week3.mjs" type="module"></script>
+
+</body>
+
+</html>
