@@ -21,7 +21,6 @@ let people = [
   "Antonia Aguilar"
 ];
 
-
 // Task 2
 // Output all the names in the list people
 
