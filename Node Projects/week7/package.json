@@ -4,13 +4,10 @@
   "description": "This is an excersize in **using fetch**, but remember that we also have other methods and skills that should be aplied. All answers should be found and answerd using code.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "jest": "^30.2.0"
-  }
+  "type": "commonjs"
 }
